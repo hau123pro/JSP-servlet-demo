@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" import="java.util.*,java.lang.*,DTO.Account"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
@@ -9,10 +9,11 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
+<link href="css/newcss.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,600,700" rel="stylesheet">
 </head>
-<body>
+<body  >
 
 
 <!-- HEADER =============================-->
@@ -29,10 +30,19 @@
 		</div>
 		<div id="navbar-collapse-02" class="collapse navbar-collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<li class="propClone"><a href="index.html">Home</a></li>
-				<li class="propClone"><a href="${pageContext.request.contextPath}/Hau">Shop</a></li>
-				<li class="propClone"><a href="product.html">Product</a></li>
-				<li class="propClone"><a href="checkout.html">Checkout</a></li>
+			<li class="propClone"><a> ${loginUser.getUserName()}</a></li>
+				<li class="propClone"><a href="${pageContext.request.contextPath}/ProductServlet">Shop</a></li>
+				<% 
+				Account loginUser=(Account)session.getAttribute("loginUser");
+				if( loginUser==null ) { %>
+				 	<li class='propClone'><a href='${pageContext.request.contextPath}/LoginServlet'>login</a></li>
+				<% 	
+					}else {
+				%>
+					<li class='propClone'><a href='${pageContext.request.contextPath}/LogoutServlet'>logout</a></li>
+					<% } %>
+				<li class="propClone"><a href="${pageContext.request.contextPath}/CartServlet">Cart</a></li>
+				
 				<li class="propClone"><a href="contact.html">Contact</a></li>
 			</ul>
 		</div>

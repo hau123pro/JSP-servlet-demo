@@ -7,7 +7,7 @@ public class Product {
 	private String Tensp;
 	private int Gia;
 	private int SoLuong;
-	private String Hinh_ct;
+	private String HinhCt;
 	public Product(String ID,String loai,String hinh,String tensp,int gia,int sl,String hinhct) {
 		this.ID=ID;
 		this.Loai=loai;
@@ -15,7 +15,10 @@ public class Product {
 		this.Tensp=tensp;
 		this.Gia=gia;
 		this.SoLuong=sl;
-		this.Hinh_ct=hinhct;
+		this.HinhCt=hinhct;
+	}
+	public Product() {
+		
 	}
 	public String getID() {
 		return ID;
@@ -42,10 +45,21 @@ public class Product {
 		this.Tensp=tensp;
 	}
 	public String getHinhct() {
-		return Hinh_ct;
+		return HinhCt;
 	}
 	public void setHinhct(String Hinhct) {
-		this.Hinh_ct=Hinhct;
+		this.HinhCt=Hinhct;
 	}
-	
+	public int getGia() {
+		return Gia;
+	}
+	public void setGia(int Gia) {
+		this.Gia=Gia;
+	}
+	public int getSoluong() {
+		return SoLuong;
+	}
+	public void setSoluong(int sl) {
+		this.SoLuong=sl;
+	}
 }
